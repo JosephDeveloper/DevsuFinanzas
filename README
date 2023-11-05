@@ -3,3 +3,16 @@ devsu-finanzas-api -> back
 BaseDatos.sql
 DevsuFinanzas.postman_collection.json
 docker-compose.yml
+
+Ejecutar aplicación:
+docker-compose up
+
+Detener aplicación:
+docker-compose down
+
+Back puerto expuesto (externo): 8001
+Front puerto expuesto (externo): 4200
+
+Postman variables:
+{{local}} -> proyecto debug profile local
+{{prod}} -> proyecto debug profile server
