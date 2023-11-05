@@ -1,0 +1,54 @@
+<h2>Cuentas</h2>
+<div class="filtro-y-botones">
+  <input
+    type="text"
+    [(ngModel)]="busqueda"
+    placeholder="Buscar"
+    class="campo-busqueda"
+  />
+  <button class="boton-nuevo" (click)="showCrearCuentaModal()">Nuevo</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>N° cuenta</th>
+      <th>Tipo</th>
+      <th>Saldo inicial</th>
+      <th>Estado</th>
+      <th>Cliente</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cuenta of filtrarCuentas()">
+      <td>{{ cuenta.numeroCuenta }}</td>
+      <td>{{ cuenta.tipoCuenta }}</td>
+      <td>{{ cuenta.saldoInicial }}</td>
+      <td>{{ cuenta.estado ? "Activo" : "Inactivo" }}</td>
+      <td>{{ cuenta.clienteId.nombre }}</td>
+      <td>
+        <button class="boton-editar" (click)="showEditarCuentaModal(cuenta)">Editar</button>
+        <button class="boton-eliminar" (click)="confirmarEliminarCliente(cuenta)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-cuenta-crear
+  *ngIf="crearModalVisible"
+  (cancelar)="hideCrearCuentaModal(false)"
+  (crear)="hideCrearCuentaModal(true)"
+></app-cuenta-crear>
+<app-cuenta-editar
+  *ngIf="editarModalVisible"
+  [cuenta]="cuentaData"
+  (cancelar)="hideEditarCuentaModal(false)"
+  (editar)="hideEditarCuentaModal(true)"
+></app-cuenta-editar>
+<app-confirm
+  *ngIf="mostrarModalEliminarCuenta"
+  [message]="mensajeEliminar"
+  [dato]="id"
+  (onConfirm)="onConfirmEliminar($event)"
+  (onCancel)="onCancelEliminar()"
+></app-confirm>

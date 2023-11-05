@@ -1,0 +1,74 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Crear Cliente</h2>
+
+    <form [formGroup]="clienteForm" (ngSubmit)="crearCliente()">
+      <!-- Campos del formulario -->
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" />
+
+      <label for="genero">Género:</label>
+      <select id="genero" formControlName="genero">
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+      </select>
+
+        <label for="edad">Edad:</label>
+        <input
+          type="number"
+          min="1"
+          max="130"
+          id="edad"
+          formControlName="edad"
+          class="form-control"
+        />
+
+        <label for="identificacion">Identificación:</label>
+        <input
+          type="text"
+          id="identificacion"
+          formControlName="identificacion"
+          class="form-control"
+        />
+
+        <label for="direccion">Dirección:</label>
+        <input
+          type="text"
+          id="direccion"
+          formControlName="direccion"
+          class="form-control"
+        />
+
+        <label for="telefono">Teléfono:</label>
+        <input
+          type="text"
+          id="telefono"
+          formControlName="telefono"
+          class="form-control"
+        />
+
+        <label for="contrasena">Contraseña:</label>
+        <input
+          type="password"
+          id="contrasena"
+          formControlName="contrasena"
+          class="form-control"
+        />
+
+        <div class="form-check">
+          <input
+            type="checkbox"
+            id="estado"
+            formControlName="estado"
+            class="form-check-input"
+          />
+          <label class="form-check-label" for="estado">Activo</label>
+        </div>
+
+      <div class="botones">
+        <button type="submit" [disabled]="!clienteForm.valid" class="boton-crear">Crear</button>
+        <button (click)="cancelarCreacion()" class="boton-cancelar">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

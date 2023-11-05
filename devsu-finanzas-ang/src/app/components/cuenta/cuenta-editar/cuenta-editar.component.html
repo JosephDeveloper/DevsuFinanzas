@@ -1,0 +1,63 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Actualizar Cuenta</h2>
+
+    <form [formGroup]="cuentaForm" (ngSubmit)="actualizarCliente()">
+      <!-- Campos del formulario -->
+      <label for="nombre">N° cuenta:</label>
+      <input
+        type="number"
+        min="1"
+        id="numeroCuenta"
+        formControlName="numeroCuenta"
+        class="form-control"
+      />
+
+      <label for="tipoCuenta">Tipo cuenta:</label>
+      <select id="tipoCuenta" formControlName="tipoCuenta">
+        <option value="Ahorros">Ahorros</option>
+        <option value="Credito">Credito</option>
+      </select>
+
+      <label for="saldoInicial">Saldo inicial:</label>
+      <input
+        type="number"
+        min="1"
+        id="saldoInicial"
+        formControlName="saldoInicial"
+        class="form-control"
+      />
+
+      <label for="clienteId">Cliente:</label>
+      <input
+        type="text"
+        id="clienteId"
+        formControlName="clienteId"
+        class="form-control"
+      />
+
+      <div class="form-check">
+        <input
+          type="checkbox"
+          id="estado"
+          formControlName="estado"
+          class="form-check-input"
+        />
+        <label class="form-check-label" for="estado">Activo</label>
+      </div>
+
+      <div class="botones">
+        <button
+          type="submit"
+          [disabled]="!cuentaForm.valid"
+          class="boton-crear"
+        >
+          Actualizar
+        </button>
+        <button (click)="cancelarEdicion()" class="boton-cancelar">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

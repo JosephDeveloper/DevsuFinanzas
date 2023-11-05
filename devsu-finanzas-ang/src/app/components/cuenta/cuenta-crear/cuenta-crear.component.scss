@@ -1,0 +1,76 @@
+/* Estilos del modal */
+h2 {
+  text-align: center;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  max-height: 80vh; /* Establece una altura máxima del 80% de la altura de la ventana */
+  overflow-y: auto;
+  width: 30%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del formulario y botones */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, select {
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-check {
+  margin-top: 10px;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:last-child {
+  background-color: #dc3545;
+}
+
+.boton-crear:not(:disabled):hover {
+  background-color: #0056b3; /* Cambio de color al pasar el cursor por encima */
+}
+
+.boton-cancelar:hover {
+  background-color: #bd2130; /* Cambio de color al pasar el cursor por encima */
+}

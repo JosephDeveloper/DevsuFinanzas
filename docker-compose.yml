@@ -1,0 +1,53 @@
+version: "3"
+services:
+  devsu-finanzas:
+    container_name: devsu-finanzas
+    build:
+      context: ./devsu-finanzas-api
+      dockerfile: Dockerfile
+    image: devsu-finanzas:latest
+    ports:
+      - "8001:8001"
+    networks:
+      - spring
+    depends_on:
+      - mysql
+    restart: always
+
+  devsu-finanzas-ang:
+    container_name: devsu-finanzas-ang
+    build:
+      context: ./devsu-finanzas-ang
+      dockerfile: Dockerfile
+    image: devsu-finanzas-ang:latest
+    ports:
+      - "4200:80"
+    volumes:
+      - ./devsu-finanzas-ang:/app
+    networks:
+      - spring
+    depends_on:
+      - devsu-finanzas
+    restart: always
+
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: devsuFinanzas
+    volumes:
+      - data-mysql:/var/lib/mysql
+    restart: always
+    networks:
+      - spring
+
+volumes:
+  data-mysql:
+    external: true
+networks:
+  spring:
+    name: spring

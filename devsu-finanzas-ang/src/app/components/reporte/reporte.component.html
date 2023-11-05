@@ -1,0 +1,48 @@
+<h2>Generación de reportes</h2>
+<form [formGroup]="reporteForm" class="reporte-form">
+  <label for="fechaInicio">Fecha de Inicio:</label>
+  <input
+    type="date"
+    id="fechaInicio"
+    formControlName="fechaInicio"
+    class="form-control"
+  />
+  <br />
+
+  <label for="fechaFin">Fecha de Fin:</label>
+  <input
+    type="date"
+    id="fechaFin"
+    formControlName="fechaFin"
+    class="form-control"
+  />
+  <br />
+
+  <label for="idCliente">Cliente:</label>
+  <select
+    id="clientSelect"
+    formControlName="idCliente"
+    class="form-control"
+  ></select>
+  <br />
+
+  <button
+    (click)="generarReporte()"
+    class="btn-generar-pdf"
+    [disabled]="!reporteForm.valid"
+  >
+    Generar PDF
+  </button>
+  <button
+    (click)="limpiarForm()"
+    class="btn-limpiar"
+  >
+    Limpiar
+  </button>
+</form>
+
+<div *ngIf="pdfBase64" class="pdf-link">
+  <a [href]="'data:application/pdf;base64,' + pdfBase64" download="reporte.pdf"
+    >Descargar PDF</a
+  >
+</div>

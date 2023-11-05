@@ -1,0 +1,54 @@
+<h2>Clientes</h2>
+<div class="filtro-y-botones">
+  <input
+    type="text"
+    [(ngModel)]="busqueda"
+    placeholder="Buscar"
+    class="campo-busqueda"
+  />
+  <button class="boton-nuevo" (click)="showCrearClienteModal()">Nuevo</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Contraseña</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of filtrarClientes()">
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.direccion }}</td>
+      <td>{{ cliente.telefono }}</td>
+      <td>{{ cliente.contrasena }}</td>
+      <td>{{ cliente.estado ? "Activo" : "Inactivo" }}</td>
+      <td>
+        <button class="boton-editar" (click)="showEditarClienteModal(cliente)">Editar</button>
+        <button class="boton-eliminar" (click)="confirmarEliminarCliente(cliente)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-cliente-crear
+  *ngIf="crearModalVisible"
+  (cancelar)="hideCrearClienteModal(false)"
+  (crear)="hideCrearClienteModal(true)"
+></app-cliente-crear>
+<app-cliente-editar
+  *ngIf="editarModalVisible"
+  [cliente]="clienteData"
+  (cancelar)="hideEditarClienteModal(false)"
+  (editar)="hideEditarClienteModal(true)"
+></app-cliente-editar>
+<app-confirm
+  *ngIf="mostrarModalEliminarCliente"
+  [message]="mensajeEliminar"
+  [dato]="id"
+  (onConfirm)="onConfirmEliminar($event)"
+  (onCancel)="onCancelEliminar()"
+></app-confirm>

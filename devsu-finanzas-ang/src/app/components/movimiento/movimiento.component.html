@@ -1,0 +1,44 @@
+<h2>Movimientos</h2>
+<div class="filtro-y-botones">
+  <input
+    type="text"
+    [(ngModel)]="busqueda"
+    placeholder="Buscar"
+    class="campo-busqueda"
+  />
+  <button class="boton-nuevo" (click)="showCrearCuentaModal()">Nuevo</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Cliente</th>
+      <th>N° cuenta</th>
+      <th>Tipo</th>
+      <th>Saldo inicial</th>
+      <th>Estado</th>
+      <th>Movimiento</th>
+      <th>Saldo disponible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movimiento of filtrarMovimientos()">
+      <td>{{ movimiento.fecha | date: 'd/MM/yyyy' }}</td>
+      <td>{{ movimiento.cuenta.clienteId.nombre }}</td>
+      <td>{{ movimiento.cuenta.numeroCuenta }}</td>
+      <td>{{ movimiento.tipoMovimiento }}</td>
+      <td *ngIf="movimiento.tipoMovimiento === 'Ahorros'">{{ movimiento.saldo + movimiento.valor }}</td>
+      <td *ngIf="movimiento.tipoMovimiento === 'Corriente'">{{ movimiento.saldo - movimiento.valor }}</td>
+      <td>{{ movimiento.cuenta.estado ? "Activo" : "Inactivo" }}</td>
+      <td *ngIf="movimiento.tipoMovimiento === 'Ahorros'">-{{ movimiento.valor }}</td>
+      <td *ngIf="movimiento.tipoMovimiento === 'Corriente'">{{ movimiento.valor }}</td>
+      <td>{{ movimiento.saldo }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<app-movimiento-crear
+  *ngIf="crearModalVisible"
+  (cancelar)="hideCrearMovimientoModal(false)"
+  (crear)="hideCrearMovimientoModal(true)"
+></app-movimiento-crear>

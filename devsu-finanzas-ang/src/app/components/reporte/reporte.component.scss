@@ -1,0 +1,48 @@
+.reporte-form {
+  width: 50%;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  .form-control {
+    width: 97%;
+    padding: 5px;
+    margin: 5px 0px 10px 0;
+  }
+
+  .btn-generar-pdf {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:not(:disabled):hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .btn-limpiar {
+    float: right;
+    margin-top: 20px;
+    background-color: #f8e800;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dfd004;
+    }
+  }
+
+
+}
+
+.pdf-link {
+  margin-top: 20px;
+}

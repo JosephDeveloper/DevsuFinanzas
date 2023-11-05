@@ -1,0 +1,39 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Registrar Movimiento</h2>
+
+    <form [formGroup]="movimientoForm" (ngSubmit)="crearMovimiento()">
+      <!-- Campos del formulario -->
+      <label for="numeroCuenta">Cuenta:</label>
+      <select id="cuentaSelect" formControlName="numeroCuenta"></select>
+
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" formControlName="tipo">
+        <option value="Ahorros">Retiro</option>
+        <option value="Credito">Deposito</option>
+      </select>
+
+      <label for="movimiento">Saldo inicial:</label>
+      <input
+        type="number"
+        min="1"
+        id="movimiento"
+        formControlName="movimiento"
+        class="form-control"
+      />
+
+      <div class="botones">
+        <button
+          type="submit"
+          [disabled]="!movimientoForm.valid"
+          class="boton-crear"
+        >
+          Crear
+        </button>
+        <button (click)="cancelarCreacion()" class="boton-cancelar">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

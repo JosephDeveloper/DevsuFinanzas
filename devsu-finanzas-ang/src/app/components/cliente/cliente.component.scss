@@ -1,0 +1,110 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Estilos para resaltar el estado */
+td.estado {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.activo {
+  background-color: #4CAF50; /* Verde para estado activo */
+}
+
+td.inactivo {
+  background-color: #FF5722; /* Rojo para estado inactivo */
+}
+
+/* Estilos para el campo de búsqueda con ancho al 30% */
+.campo-busqueda {
+  width: 30%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+/* Estilo al enfocar el campo de búsqueda */
+.campo-busqueda:focus {
+  border-color: #007bff;
+}
+
+/* Estilos para el botón "Nuevo" */
+.boton-nuevo {
+  padding: 10px 20px;
+  background-color: #ffee00;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.boton-nuevo:hover {
+  background-color: #cfc100; /* Cambio de color al pasar el cursor por encima */
+}
+
+.filtro-y-botones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boton-editar,
+.boton-eliminar {
+  width: 80px; /* Ancho y alto iguales para ambos botones */
+  margin: 2px;
+}
+
+/* Estilos para el botón de editar */
+.boton-editar {
+  background-color: #007bff; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-right: 10px; /* Espacio entre los botones de editar y eliminar */
+  cursor: pointer;
+}
+
+.boton-editar:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el cursor por encima */
+}
+
+/* Estilos para el botón de eliminar */
+.boton-eliminar {
+  background-color: #dc3545; /* Color de fondo */
+  color: #fff; /* Color de texto */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background-color: #bd2130; /* Cambio de color al pasar el cursor por encima */
+}

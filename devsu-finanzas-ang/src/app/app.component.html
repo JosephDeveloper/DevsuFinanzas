@@ -1,0 +1,18 @@
+<div class="container">
+  <header class="header">
+    <!-- Encabezado al 100% de la pantalla -->
+    <h1>Devsu<br>Finanzas</h1>
+  </header>
+  <nav class="sidebar">
+    <!-- Menú vertical -->
+    <ul>
+        <li><a (click)="onChangeContent('cliente')">Clientes</a></li>
+        <li><a (click)="onChangeContent('cuenta')">Cuentas</a></li>
+        <li><a (click)="onChangeContent('movimiento')">Movimientos</a></li>
+        <li><a (click)="onChangeContent('reporte')">Reportes</a></li>
+    </ul>
+  </nav>
+  <article class="content-1">
+    <router-outlet></router-outlet>
+  </article>
+</div>

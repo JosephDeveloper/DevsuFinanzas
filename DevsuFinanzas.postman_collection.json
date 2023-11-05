@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "3700b161-3b81-4c18-b550-37d0f5f600a1",
+		"name": "DevsuFinanzas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26025984"
+	},
+	"item": [
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "RegistrarCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Jose Lema\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 28,\r\n    \"identificacion\": \"1321243324\",\r\n    \"direccion\": \"Otavalo sn y principal\",\r\n    \"telefono\": \"098254785\",\r\n    \"clienteId\": 1,\r\n    \"contrasena\": \"1234\",\r\n    \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{prod}}/clientes",
+							"protocol": "http",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Joseph\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 28,\r\n    \"identificacion\": \"1107087151\",\r\n    \"direccion\": \"Sur Cali\",\r\n    \"telefono\": \"3183011943\",\r\n    \"clienteId\": 1107087151,\r\n    \"contrasena\": \"prueba\",\r\n    \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{local}}/clientes/5",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"clientes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{local}}/clientes/7",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"clientes",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{prod}}/clientes",
+							"protocol": "http",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUENTA",
+			"item": [
+				{
+					"name": "RegistrarCuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroCuenta\": \"585545\",\r\n    \"tipoCuenta\": \"Corriente\",\r\n    \"saldoInicial\": 1000,\r\n    \"estado\": true,\r\n    \"clienteId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{local}}/cuentas",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroCuenta\": \"12345\",\r\n    \"tipoCuenta\": \"Ahorros\",\r\n    \"saldoInicial\": 1200,\r\n    \"estado\": true,\r\n    \"clienteId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{local}}/cuentas/6",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"cuentas",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{local}}/cuentas/1",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"cuentas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarCuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{local}}/cuentas",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MOVIMIENTO",
+			"item": [
+				{
+					"name": "RegistrarMovimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\" : \"2023-11-02 15:40:00\",\r\n    \"numeroCuenta\" : \"478758\",\r\n    \"tipo\" : \"Ahorros\",\r\n    \"movimiento\" : 600\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{local}}/movimientos",
+							"protocol": "http",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REPORTE",
+			"item": [
+				{
+					"name": "GenerarReporte",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{prod}}/reportes?idCliente=1321253232&fechaInicio=2023-11-03&fechaFin=2023-11-04",
+							"protocol": "http",
+							"host": [
+								"{{prod}}"
+							],
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "idCliente",
+									"value": "1321253232"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2023-11-03"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2023-11-04"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "localhost:8002"
+		},
+		{
+			"key": "prod",
+			"value": "localhost:8001"
+		}
+	]
+}
